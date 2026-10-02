@@ -138,6 +138,14 @@ ubuntu-soaptools:
 	@$(PHENIX_IMAGE_BUILD)
 	@$(INJECT_MINICCC)
 
+# Build bennu-dev.qc2			-- Ubuntu Jammy, bennu-dev, bennu, brash
+bennu-dev:
+	@$(CHECK_IMAGE)
+	@$(CHECK_TAR)
+	@$(PHENIX) image create -O $(WORKDIR)/overlays/bennu-dev,$(WORKDIR)/overlays/bennu,$(WORKDIR)/overlays/brash -T $(WORKDIR)/scripts/bennu-dev.sh $(UBUNTU_MIRROR) $(COMPRESS) $(@)
+	@$(PHENIX_IMAGE_BUILD)
+	@$(INJECT_MINICCC)
+
 ##
 ## ------------------------------------------ Administration ------------------------------------------
 ##
